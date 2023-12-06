@@ -1,1 +1,3 @@
-None so far!
+You will need the module discord.py, as this is a discord bot.
+
+$ pip install -U discord.py
