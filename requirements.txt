@@ -1,3 +1,10 @@
 You will need the module discord.py, as this is a discord bot.
 
 $ pip install -U discord.py
+
+A .env file with
+{
+# .env
+DISCORD_TOKEN={your-bot-token}
+DISCORD_GUILD={your-guild-name}
+}
