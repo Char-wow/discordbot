@@ -17,7 +17,10 @@ class MyClient(discord.Client):
 
         if message.content == 'ping':
             await message.channel.send('pong')
-
+        if message.content == 'PING':
+          await message.channel.send('FUCKING PONG')
+          
+          
 intents = discord.Intents.default()
 intents.message_content = True
 client = MyClient(intents=intents)

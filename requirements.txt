@@ -8,3 +8,6 @@ A .env file with
 DISCORD_TOKEN={your-bot-token}
 DISCORD_GUILD={your-guild-name}
 }
+
+$ pip install pandas
+$ pip install mysql-connector-python
