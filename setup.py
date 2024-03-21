@@ -2,48 +2,41 @@
 import discord
 import os
 from dotenv import load_dotenv
+import tkinter as tk
 
 import mysql.connector
 from mysql.connector import Error
 import pandas as pd
+from discordconnect import connect
+#
+
 
 load_dotenv()
-token = os.getenv('DISCORD_TOKEN')
-GUILD = os.getenv('DISCORD_GUILD')
 pw = os.getenv('SQLROOTPASS')
 
-def create_server_connection(host_name, user_name, user_password):
-    connection = None
-    try:
-        connection = mysql.connector.connect(
-            host=host_name,
-            user=user_name,
-            passwd=user_password
-        )
-        print("MySQL Database connection successful")
-    except Error as err:
-        print(f"Error: '{err}'")
+def threadmain():
+    t = tk.Tk()
+    b = tk.Button(t,text='test', command=connect)
+    b.grid(row=1)
+    t.mainloop()
 
-    return connection
+    
+#tkinter GUI initialisation
+root = tk.Tk()
+root.geometry("300x200")
+root.title("Discord Bot")
 
-class MyClient(discord.Client):
-    async def on_ready(self):
-        print('Logged on as', self.user)
 
-    async def on_message(self, message):
-        # don't respond to ourselves
-        if message.author == self.user:
-            return
+button1 = tk.Button(text="   Discord Control Window   ",bg="brown",command=threadmain)
+button1.grid(column=0,row=1)
 
-        if message.content == 'ping':
-            await message.channel.send('pong')
-        if message.content == 'PING':
-          await message.channel.send('FUCKING PONG')
-          
-          
-intents = discord.Intents.default()
-intents.message_content = True
-client = MyClient(intents=intents)
-client.run(token)
 
-connection = create_server_connection("localhost", "root", pw)
+
+
+    
+#
+
+
+#
+
+root.mainloop()
