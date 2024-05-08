@@ -8,6 +8,7 @@ Created on Wed Mar 20 19:42:59 2024
 import discord
 import os
 from dotenv import load_dotenv
+#
 
 #ENV values
 load_dotenv()
